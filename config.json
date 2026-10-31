@@ -1,0 +1,47 @@
+{
+  "mode": "paper",
+
+  "symbols": ["XAUUSD", "EURUSD"],
+  "timeframe": "M15",
+
+  "strategy": {
+    "ema_fast": 20,
+    "ema_slow": 100,
+    "htf_timeframe": "H1",
+    "adx_period": 14,
+    "adx_min": 20,
+    "atr_period": 14,
+    "atr_stop_mult": 2.0,
+    "atr_trail_mult": 2.5,
+    "max_bar_expansion_atr": 1.8,
+    "require_momentum": true
+  },
+
+  "risk": {
+    "risk_pct_per_trade": 0.5,
+    "max_open_positions": 2,
+    "max_daily_loss_pct": 2.0,
+    "max_trades_per_day": 8,
+    "trade_hours_utc_start": 8,
+    "trade_hours_utc_end": 21,
+    "max_spread_points": { "XAUUSD": 35, "EURUSD": 20 },
+    "min_lots": 0.01,
+    "max_lots": 5.0
+  },
+
+  "live": {
+    "confirm_live": false,
+    "override_backtest_gate": false,
+    "magic": 20261031,
+    "deviation_points": 30,
+    "account_login": 0
+  },
+
+  "paper": {
+    "start_balance": 1000.0
+  },
+
+  "backtest": {
+    "bars": 4000
+  }
+}

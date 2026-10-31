@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+bot.log
+trades.csv
+paper_state.json
+STOP
+.vscode/

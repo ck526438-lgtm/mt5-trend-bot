@@ -1,0 +1,13 @@
+﻿symbole,reglage,trades,win_rate_pct,profit_factor_R,expectance_R,drawdown_max_pct
+XAUUSD,"base  EMA20/100  ADX20  stop 2,0 ATR",64,25.0,0.71,-0.172,9.1
+XAUUSD,EMA20/50 (plus rapide),64,20.3,0.62,-0.215,9.8
+XAUUSD,ADX >= 25 (tendance plus exigeante),40,27.5,0.71,-0.162,5.1
+XAUUSD,ADX >= 15 (plus permissif),84,25.0,0.69,-0.178,10.9
+XAUUSD,"stop 3,0 ATR / trail 3,5 (plus d'air)",47,27.7,0.74,-0.135,5.8
+XAUUSD,sans filtre H1,96,26.0,0.66,-0.184,11.6
+EURUSD,"base  EMA20/100  ADX20  stop 2,0 ATR",70,38.6,1.54,0.244,2.5
+EURUSD,EMA20/50 (plus rapide),69,40.6,1.22,0.092,5.5
+EURUSD,ADX >= 25 (tendance plus exigeante),55,38.2,1.58,0.26,2.6
+EURUSD,ADX >= 15 (plus permissif),89,34.8,1.35,0.165,4.0
+EURUSD,"stop 3,0 ATR / trail 3,5 (plus d'air)",47,31.9,1.16,0.075,2.4
+EURUSD,sans filtre H1,99,37.4,1.24,0.113,3.0
