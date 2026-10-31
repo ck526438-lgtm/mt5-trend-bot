@@ -1,0 +1,43 @@
+name: verif
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  syntaxe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compiler tous les modules
+        run: |
+          python -m pip install --quiet pandas numpy
+          python -m pip install --quiet MetaTrader5 || echo "MetaTrader5 indisponible sur Linux: normal, le module est Windows-only"
+          python - <<'PY'
+          import ast, json, pathlib, sys
+          bad = []
+          for p in sorted(pathlib.Path(".").glob("*.py")):
+              try:
+                  ast.parse(p.read_text(encoding="utf-8"), filename=str(p))
+                  print("OK", p)
+              except SyntaxError as e:
+                  bad.append(f"{p}: {e}")
+          cfg = json.loads(pathlib.Path("config.json").read_text(encoding="utf-8"))
+          for cle in ("mode", "symbols", "strategy", "risk", "live", "paper"):
+              assert cle in cfg, f"config.json: cle manquante {cle}"
+          assert cfg["mode"] in ("paper", "live"), "mode invalide"
+          assert 0 < float(cfg["risk"]["risk_pct_per_trade"]) <= 5, "risk_pct_per_trade hors limites saines"
+          assert cfg["live"]["confirm_live"] is False, "confirm_live doit etre false dans le depot"
+          print("config.json OK (risque %:", cfg["risk"]["risk_pct_per_trade"], ")")
+          if bad:
+              print("\n".join(bad)); sys.exit(1)
+          PY
+      - name: Les images du README existent
+        run: |
+          for f in equite distribution_R drawdown anatomie sensibilite; do
+            test -s "docs/img/$f.png" || { echo "image manquante: $f"; exit 1; }
+          done

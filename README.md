@@ -1,5 +1,10 @@
 # Robot de trading MT5 — suivi de tendance M15
 
+[![vérification](https://github.com/ck526438-lgtm/mt5-trend-bot/actions/workflows/verif.yml/badge.svg)](https://github.com/ck526438-lgtm/mt5-trend-bot/actions/workflows/verif.yml)
+![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776ab)
+![MetaTrader5](https://img.shields.io/badge/MetaTrader5-API-2e8b57)
+![Licence MIT](https://img.shields.io/badge/licence-MIT-grey)
+
 Un programme Python branché sur MetaTrader 5 : il lit les bougies M15 clôturées, décide,
 et place des ordres avec **stop-loss obligatoire**, taille au risque fixe et coupe
 journalière. Backtest sur l'historique réel, mode papier, mode réel, journal de trades.
@@ -128,6 +133,10 @@ forcer, en sachant que tu trades alors sans avantage mesuré.
 
 **Conseil :** 100 à 200 trades en papier d'abord. En dessous d'une centaine de trades
 clôturés, la différence entre un système gagnant et un système perdant tient dans le bruit.
+
+Le dépôt reste livré avec `confirm_live: false` : la vérification automatique (`.github/workflows/verif.yml`)
+échoue si cette valeur part avec un push, pour qu'un réglage prêt à envoyer des ordres réels
+ne traîne pas en public.
 
 ---
 
